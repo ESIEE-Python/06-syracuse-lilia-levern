@@ -48,10 +48,14 @@ def temps_de_vol(liste):
         list: la suite de Syracuse de source n 
     """
 # votre code ici
-
+    if len(liste) == 0:
+        idx = -999
     for idx, elt in enumerate(liste, 1):
         if elt==1:
-            return idx
+            break
+            # return idx
+
+    return idx
 
 def temps_de_vol_en_altitude(l):
     """jjj"""
@@ -59,11 +63,15 @@ def temps_de_vol_en_altitude(l):
 
 
   # votre code ici
-
+    if len(l):
+        return_value = -999
     altitude_initiale = l[0]
     for elt in l:
         if elt<altitude_initiale :
-            return  l.index(elt)
+            return_value = l.index(elt)
+            break
+
+    return  return_value
 
 
 
