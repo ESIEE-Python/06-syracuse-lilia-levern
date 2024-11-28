@@ -1,11 +1,13 @@
 #### Fonctions secondaires
-
+"""jjjjj"""
 
 # imports
 from plotly.graph_objects import Scatter, Figure
 
 ### NE PAS MODIFIER ###
+
 def syr_plot(lsyr):
+    """ jjjjjjj"""
     title = "Syracuse" + " (n = " + str(lsyr[0]) + " )"
     fig = Figure({  'layout':   { 'title': {'text': title},
                                 'xaxis': {'title': {'text':"x"}},
@@ -14,13 +16,10 @@ def syr_plot(lsyr):
                 }
     )
 
-    x = [ i for i in range(len(lsyr)) ]
+    x = list(range(len(lsyr)))
     t = Scatter(x=x, y=lsyr, mode="lines+markers", marker_color = "blue")
     fig.add_trace(t)
     fig.show()
-    # fig.write_html('fig.html', include_plotlyjs='cdn')
-    return None
-#######################
 
 def syracuse_l(n):
     """retourne la suite de Syracuse de source n
@@ -32,39 +31,41 @@ def syracuse_l(n):
         list: la suite de Syracuse de source n
     """
 
-    # votre code ici 
-    l = [ ]
+    l = [n ]
+    while n != 1:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+        l.append(n)
     return l
 
-def temps_de_vol(l):
-    """Retourne le temps de vol d'une suite de Syracuse
+def temps_de_vol(liste):
+    """ Args:
+        n (int): la source de la suite
 
-    Args:
-        l (list): la suite de Syracuse
-
-    Returns:
-        int: le temps de vol
+         Returns:
+        list: la suite de Syracuse de source n 
     """
-    
-    # votre code ici
+# votre code ici
 
-    n = 0
-    return n
+    for idx, elt in enumerate(liste, 1):
+        if elt==1:
+            return idx
 
 def temps_de_vol_en_altitude(l):
-    """Retourne le temps de vol en altitude d'une suite de Syracuse
+    """jjj"""
 
-    Args:
-        l (list): la suite de Syracuse
 
-    Returns:
-        int: le temps de vol en altitude
-    """
 
-    # votre code ici
+  # votre code ici
 
-    n = 0
-    return n
+    altitude_initiale = l[0]
+    for elt in l:
+        if elt<altitude_initiale :
+            return  l.index(elt)
+
+
 
 
 def altitude_maximale(l):
@@ -76,10 +77,8 @@ def altitude_maximale(l):
     Returns:
         int: l'altitude maximale
     """
-    
     # votre code ici
-    
-    n = 0
+    n = max(l)
     return n
 
 
@@ -87,9 +86,16 @@ def altitude_maximale(l):
 
 
 def main():
+    """jjjjj"""
 
     # vos appels à la fonction secondaire ici
+    print((syracuse_l(5)))
+    syr_plot(syracuse_l(5))
+    print(temps_de_vol(syracuse_l(5)))
+    print(temps_de_vol_en_altitude(syracuse_l(5)))
+    print(altitude_maximale(syracuse_l(5)))
     lsyr = syracuse_l(15)
+
     syr_plot(lsyr)
     print(temps_de_vol(lsyr))
     print(temps_de_vol_en_altitude(lsyr))
